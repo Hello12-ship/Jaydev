@@ -1,0 +1,221 @@
+<!Doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jaydev Paan — Best Paan in Town</title>
+  <meta name="description" content="Jaydev Paan — Swadisht paan, ghar jaisa taste. Order karein aur enjoy karein!" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#111;background:#fff}
+    a{color:inherit;text-decoration:none}
+
+    .container{max-width:1100px;margin:0 auto;padding:18px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:#222;color:#fff;padding:8px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn.secondary{background:transparent;color:#222;border:1px solid #eee}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;margin:18px 0;padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(34,34,34,.06)}
+    .hero-left{padding:8px}
+    .promo-badge{display:inline-block;background:#ffeb3b;color:#111;padding:6px 10px;border-radius:999px;font-weight:700;margin-bottom:10px}
+    h1{font-size:28px;line-height:1.05;margin-bottom:8px}
+    p.lead{color:#444;margin-bottom:14px}
+    .cta-row{display:flex;gap:10px;align-items:center}
+    .price-tag{background:#fff;padding:10px 12px;border-radius:12px;border-left:4px solid #2b9348;font-weight:700}
+
+    .hero-card{background:linear-gradient(180deg,#fff,#fbfbfb);padding:12px;border-radius:12px;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .product-img{width:100%;height:220px;border-radius:10px;background-image:url('https://images.unsplash.com/photo-1604908177522-0a7a9d2c6f7a?q=80&w=800&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+    .product-title{font-weight:700}
+    .rating{font-size:13px;color:#ff8a00}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .card{background:#fff;padding:12px;border-radius:12px;border:1px solid #f0f0f0;box-shadow:0 6px 18px rgba(17,17,17,.03)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+    .card h3{font-size:16px;margin-bottom:6px}
+    .price{font-weight:700;margin-bottom:8px}
+
+    .order-bar{position:sticky;bottom:18px;margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px;border-radius:12px;background:#fff;box-shadow:0 12px 30px rgba(11,83,36,.05)}
+    .order-left{display:flex;gap:12px;align-items:center}
+    .mini{width:56px;height:56px;border-radius:10px;background:#f7f7f7;display:flex;align-items:center;justify-content:center}
+    footer{margin-top:26px;padding:18px 0;color:#666;text-align:center;font-size:14px}
+
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:40}
+    .modal{background:#fff;padding:18px;border-radius:12px;max-width:520px;width:100%}
+    .form-row{display:flex;gap:8px;margin-bottom:8px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eee;outline:none}
+    textarea{min-height:100px;resize:vertical}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;gap:12px}
+      .hero-right{order:2}
+    }
+    @media(max-width:520px){
+      h1{font-size:22px}
+      .product-img{height:180px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 🔥 Updated Header with Image -->
+    <header>
+      <div class="logo">
+        <img src="Jaydev.jpg" alt="Jaydev Paan Logo" style="width:60px;height:60px;border-radius:12px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+        <div>
+          <div style="font-weight:800;font-size:20px;">Jaydev Paan</div>
+          <div style="font-size:13px;color:#666">Fresh • Tasty • Handcrafted</div>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" id="orderBtn">Order Now</a>
+        <a class="btn secondary" id="contactBtn">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <span class="promo-badge">Special Offer</span>
+        <h1>Jaydev Paan — Har bite mein desi swaad</h1>
+        <p class="lead">Hand-rolled paan with premium ingredients. Special discount for first-time online orders. Bulk orders welcome for events and functions.</p>
+
+        <div class="cta-row">
+          <button class="btn" id="buyNow">Buy ₹49</button>
+          <div class="price-tag">Free delivery on orders ₹249+</div>
+        </div>
+
+        <div style="margin-top:12px;color:#444;font-size:14px">
+          <strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a> • 
+          <strong>Shop:</strong> Near Bus Stand, Your City
+        </div>
+      </div>
+
+      <aside class="hero-card hero-right">
+        <div class="product-img" id="heroImage"></div>
+        <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="product-title">Jaydev Special Paan</div>
+            <div class="rating">★★★★★ (4.9)</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800">₹49</div>
+            <div style="font-size:12px;color:#666">per piece</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Product Cards -->
+    <section>
+      <h2 style="margin-top:6px;margin-bottom:10px">Our Variants</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1524594154902-3a87a45b5b1b?q=80&w=800&auto=format&fit=crop" alt="Sweet Paan">
+          <h3>Sweet Paan</h3>
+          <div class="price">₹39</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn small" onclick="quickBuy('Sweet Paan',39)">Buy</button>
+            <button class="btn secondary" onclick="openContact('Sweet Paan')">Info</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1549893070-01a9b27b3d3c?q=80&w=800&auto=format&fit=crop" alt="Meetha Paan">
+          <h3>Meetha Paan</h3>
+          <div class="price">₹45</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn small" onclick="quickBuy('Meetha Paan',45)">Buy</button>
+            <button class="btn secondary" onclick="openContact('Meetha Paan')">Info</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1582719478171-5c6b01e4b0f9?q=80&w=800&auto=format&fit=crop" alt="Special Paan">
+          <h3>Jaydev Special</h3>
+          <div class="price">₹49</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn small" onclick="quickBuy('Jaydev Special',49)">Buy</button>
+            <button class="btn secondary" onclick="openContact('Jaydev Special')">Info</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sticky Order Bar -->
+    <div class="order-bar">
+      <div class="order-left">
+        <div class="mini">JP</div>
+        <div>
+          <div style="font-weight:700">Order via WhatsApp</div>
+          <div style="font-size:13px;color:#666">Tap to message +91 98765 43210</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <a class="btn" href="https://wa.me/919876543210?text=Hi%20Jaydev%20Paan%2C%20I%20want%20to%20order" target="_blank">Message</a>
+        <a class="btn secondary" id="menuBtn">Full Menu</a>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Jaydev Paan · Made with ❤️ · <a href="#contact">Contact</a>
+    </footer>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <h3>Contact / Order</h3>
+      <p style="color:#555;font-size:14px;margin-bottom:8px">Fill the details aur hum jaldi reply karenge.</p>
+      <div class="form-row">
+        <input id="fname" placeholder="Naam">
+        <input id="phone" placeholder="Phone (eg. 9876543210)">
+      </div>
+      <div style="margin-bottom:8px">
+        <input id="subject" placeholder="Product (optional)">
+      </div>
+      <div style="margin-bottom:8px">
+        <textarea id="message" placeholder="Message (order details / queries)"></textarea>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn secondary" onclick="closeModal()">Close</button>
+        <button class="btn" onclick="submitForm()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const modal = document.getElementById('modal');
+
+    document.getElementById('contactBtn').addEventListener('click', openContact);
+    document.getElementById('orderBtn').addEventListener('click', openContact);
+    document.getElementById('buyNow').addEventListener('click', ()=> quickBuy('Jaydev Special',49));
+    document.getElementById('menuBtn').addEventListener('click', ()=> window.scrollTo({top:document.querySelector('.cards').offsetTop-20,behavior:'smooth'}));
+
+    function openContact(product) {
+      document.getElementById('subject').value = product || '';
+      modal.style.display = 'flex';
+      document.getElementById('fname').focus();
+    }
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    function submitForm() {
+      const name = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if(!name || !phone){alert('Naam aur phone daalna zaroori hai.');return;}
+      alert('Thank you, ' + name + '! Your message has been sent. We will call on ' + phone);
+      closeModal();
+    }
+    function quickBuy(product, price) {
+      const text = encodeURIComponent('Hi Jaydev Paan, I want to order: ' + product + ' (₹' + price + '). Please confirm.');
+      window.open('https://wa.me/919876543210?text=' + text, '_blank');
+    }
+    modal.addEventListener('click', e=>{if(e.target===modal)closeModal();});
+    window.addEventListener('keyup', e=>{if(e.key==='Escape')closeModal();});
+  </script>
+</body>
+</html>
